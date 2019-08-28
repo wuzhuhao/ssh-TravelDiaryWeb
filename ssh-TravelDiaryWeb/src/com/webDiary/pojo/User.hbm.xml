@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.webDiary.pojo">
+	<class name="User" table="user">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="userName" />
+		<property name="passwd" />
+		<property name="site" />
+		<property name="sex" />
+		<property name="email" />
+		<property name="individualResume" />
+		<property name="image" />
+		<property name="state" />
+		
+		
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="default" extends="struts-default,json-default">
+
+		<interceptors>
+			<interceptor name="privilegeInterceptor"
+				class="com.webDiary.interceptor.PrivilegeInterceptor" />
+		</interceptors>
+
+		<global-results>
+			<!-- 当返回login视图名时，转入/login.jsp页面 -->
+			<result name="login">/login.jsp</result>
+		</global-results>
+
+		<action name="login" class="UserActionBean" method="login">
+		</action>
+
+		<action name="register" class="UserActionBean" method="register">
+
+		</action>
+
+		<action name="checkNameByLogined" class="UserActionBean"
+			method="checkNameByLogined">
+
+		</action>
+		<action name="Photoproch" class="LoginActionBean" method="Photoproch">
+
+		</action>
+
+		<action name="fangKe" class="LoginActionBean" method="fangKe">
+			<result name="Success">/index2</result>
+		</action>
+
+		<action name="exit" class="LoginActionBean" method="exit">
+			<result name="Success">/index2</result>
+		</action>
+
+		<action name="list" class="diaryActionBean" method="list">
+			<result name="Success">/list.jsp</result>
+		</action>
+
+		<action name="list1" class="diaryActionBean" method="list">
+			<result name="Success">/index2</result>
+		</action>
+		<action name="list5" class="diaryActionBean" method="list3">
+			<result name="Success">/index2</result>
+		</action>
+		<action name="list2" class="diaryActionBean" method="list2">
+			<result name="Success">/index2</result>
+		</action>
+		<action name="list3" class="diaryActionBean" method="list">
+			<result name="Success">/list.jsp</result>
+		</action>
+
+
+		<action name="list4" class="diaryActionBean" method="findByType">
+			<result name="Success">/list.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+		<action name="destination" class="diaryActionBean" method="destination">
+			<result name="Success">/destination.jsp</result>
+		</action>
+
+
+		<action name="index2" class="diaryActionBean" method="list">
+			<result name="Success">/index2.jsp</result>
+		</action>
+
+		<action name="info" class="diaryActionBean" method="info">
+			<result name="Success">/info.jsp</result>
+
+
+		</action>
+		<action name="infopic" class="diaryActionBean" method="infopic">
+			<result name="Success">/infopic.jsp</result>
+
+
+		</action>
+
+
+		<action name="seach" class="diaryActionBean" method="findDiarybySeach">
+			<result name="Success">/list.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="seachCity" class="diaryActionBean" method="findByCity">
+			<result name="Success">/list.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+		<action name="seachCityByCountryRegion" class="diaryActionBean"
+			method="findByCountryRegion">
+			<result name="Success">/dizhi.jsp</result>
+			<!-- /scenery.jsp -->
+			<result name="File">/login.jsp</result>
+		</action>
+		<action name="findByCountryRegionForJson" class="diaryActionBean"
+			method="findByCountryRegionForJson">
+		</action>
+		<action name="seachByFour" class="diaryActionBean" method="seachByFour">
+			<result name="Success">/dizhi_.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+		<action name="seachByFourForJson" class="diaryActionBean"
+			method="seachByFourForJson">
+		</action>
+
+		<action name="findUserById" class="UserActionBean" method="findUserById">
+			<result name="Success">/homepage.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="getJson" class="UserActionBean" method="findAllDiaryByUidToJson">
+
+		</action>
+		<action name="seachForJson" class="diaryActionBean" method="findType_">
+			<result name="Success">/list.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+		
+		<action name="findDiarybySeachForJson" class="diaryActionBean" method="findDiarybySeachForJson">
+		</action>
+
+		<action name="share" class="diaryActionBean" method="list">
+			<result name="Success">/share.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="write" class="diaryActionBean" method="insert">
+			<result name="Success">/info.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="write1" class="diaryActionBean" method="insert1">
+			<result name="Success">/info.jsp</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="delete" class="diaryActionBean" method="delete">
+			<result name="Success">/index2</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="gbook" class="messageActionBean" method="list">
+			<result name="Success">/gbook.jsp</result>
+			<result name="File">/login.jsp</result>
+
+		</action>
+		<action name="gbook1" class="messageActionBean" method="insert">
+			<result name="Success">/gbook</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="reply" class="messageActionBean" method="reply">
+			<result name="Success">/gbook</result>
+
+		</action>
+
+		<!-- <action name="likenum" class="commentActionBean" method="likenum">
+			<result name="Success">/gbook</result>
+			<result name="File">/login.jsp</result>
+		</action> -->
+		
+		<action name="findComment" class="commentActionBean" method="findComment">
+			<result name="Success">/commentsList.jsp</result>
+			<result name="Error">/login.jsp</result>
+			<!-- 拦截器一般配置在result元素之后! -->
+			<!-- 应用自定义拦截器 -->
+			<interceptor-ref name="privilegeInterceptor" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="findCommentForJson" class="commentActionBean" method="findCommentForJson">
+		</action>
+		<action name="wo" class="commentActionBean" method="wo">
+			<result name="Success">/gbook</result>
+			<result name="File">/login.jsp</result>
+
+		</action>
+		<action name="comment" class="commentActionBean" method="comment">
+			<result name="Success" type="redirectAction">/info?id=${session.info.did}
+			</result>
+			<result name="File">/login.jsp</result>
+		</action>
+
+		<action name="uploadServlet" class="photoActionBean" method="uploadServlet">
+
+		</action>
+
+		<action name="drafts" class="dDiaryActionBean" method="insert">
+			<result name="Success">/draftsList</result>
+		</action>
+
+		<action name="draftsList" class="dDiaryActionBean" method="list">
+			<result name="Success">/drafts.jsp</result>
+			<!-- 拦截器一般配置在result元素之后! -->
+			<!-- 应用自定义拦截器 -->
+			<interceptor-ref name="privilegeInterceptor" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="draftsList1" class="dDiaryActionBean" method="list1">
+
+		</action>
+
+
+		<action name="draftsWrite" class="dDiaryActionBean" method="findById">
+			<result name="Success">/write.jsp</result>
+			<!-- 拦截器一般配置在result元素之后! -->
+			<!-- 应用自定义拦截器 -->
+			<interceptor-ref name="privilegeInterceptor" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="deleteId" class="dDiaryActionBean" method="deleteId">
+			<result name="Success">/draftsList?page=1</result>
+		</action>
+
+		<action name="deleteAll" class="dDiaryActionBean" method="deleteAll">
+			<result name="Success">/draftsList?page=1</result>
+		</action>
+
+		<!-- 配置用户模块的Action -->
+		<action name="users_*" class="UserActionBean" method="{1}">
+			<result name="registPage">/WEB-INF/jsp/regist.jsp</result>
+			<result name="userInfoSuccess">/userInfo.jsp</result>
+			<result name="update">users_userInfo</result>
+			
+			<result name="image" type="chain">users_userInfo</result>
+			<!-- 拦截器一般配置在result元素之后! -->
+			<!-- 应用自定义拦截器 -->
+			<interceptor-ref name="privilegeInterceptor" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="checkName" class="UserActionBean" method="checkName">
+		</action>
+		
+		<action name="findUserMessageByUidToJson" class="UserActionBean"
+			method="findUserMessageByUidToJson">
+		</action>
+		
+		<action name="enable" class="UserActionBean" method="enable">
+
+		</action>
+		<action name="discontinuation" class="UserActionBean" method="discontinuation">
+
+		</action>
+		<!-- 配置点赞模块的Action -->
+		<action name="DiaryLike_*" class="DiaryLikeActionBean" method="{1}">
+			<result name="registPage">/WEB-INF/jsp/regist.jsp</result>
+		</action>
+		
+		<!-- 配置景点推荐的Action -->
+		<action name="Recommendation_*" class="RecommendationActionBean" method="{1}">
+			<result name="listSuccess">/scenery.jsp</result>
+			<result name="infoSuccess">/sceneryInfo.jsp</result>
+		</action>
+
+
+		<!-- 后台 -->
+		<action name="user_*" class="LoginActionBean" method="{1}">
+			<result name="findAll">/houTai/member-list.jsp</result>
+			
+			<result name="delete2"></result>
+			<result name="stop"></result>
+		</action>
+		<action name="diary_*" class="diaryActionBean" method="{1}">
+			<result name="findAll">/houTai/article-list.jsp</result>
+			<result name="findPhoto">/houTai/picture-list.jsp</result>
+			<result name="contribution">rank.jsp</result>
+			<result name="delete2"></result>
+		</action>
+		<action name="comment_*" class="commentActionBean" method="{1}">
+			<result name="findAll">/houTai/comment.jsp</result>
+			<result name="contribution">rank.jsp</result>
+			<result name="delete2"></result>
+		</action>
+		<action name="message_*" class="messageActionBean" method="{1}">
+			<result name="findAll">/houTai/feedback-list.jsp</result>
+			<result name="delete2"></result>
+			<result name="all">/houTai/member-add.jsp</result>
+			<result name="reply">/houTai/close.jsp</result>
+		</action>
+		<action name="admin_*" class="adminActionBean" method="{1}">
+			<result name="findAll">/houTai/admin-list.jsp</result>
+			<result name="admin_check">/houTai/index.jsp</result>
+			<result name="all">/houTai/admin-add.jsp</result>
+			<result name="edit">/houTai/close.jsp</result>
+			<result name="delete"></result>
+		</action>
+		<action name="checkImg" class="adminActionBean" method="yanzhengma"></action>
+		<action name="photo_*" class="photoActionBean" method="{1}">
+			<result name="findById">/houTai/picture-show.jsp</result>
+			<result name="delete"></result>
+			<result name="delete2">/houTai/picture-show.jsp</result>
+		</action>
+		<action name="recommend_*" class="recommendActionBean" method="{1}">
+			<result name="List_Fail">/index2</result>
+			<result name="List_Success">/share.jsp</result>
+			<result name="Find_Fail">/index2</result>
+			<result name="Find_Success">/recommendInfo.jsp</result>
+		</action>
+		<action name="userMessage_*" class="userMessageActionBean"
+			method="{1}">
+			<result name="List_Success">/homepage.jsp</result>
+			<result name="contribution">rank.jsp</result>
+			<result name="findAll">/houTai/userMessage.jsp</result>
+		</action>
+
+	</package>
+</struts>

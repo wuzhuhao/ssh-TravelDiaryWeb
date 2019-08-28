@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.webDiary.pojo">
+	<class name="Comment" table="comment_">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="content" />
+		<property name="time" />
+		<property name="reply" />
+		<many-to-one name="diary" class="com.webDiary.pojo.Diary" lazy="false" cascade="save-update" column="did" />
+		<many-to-one name="user" class="com.webDiary.pojo.User" lazy="false" cascade="save-update" column="uid" />
+	</class>
+	
+</hibernate-mapping>

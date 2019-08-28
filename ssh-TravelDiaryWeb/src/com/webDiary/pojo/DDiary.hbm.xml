@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.webDiary.pojo">
+	<class name="DDiary" table="ddiary">
+		<id name="Did" column="Did">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="title" />
+		<property name="content" />
+		<property name="content2" />
+		<property name="classify" />
+		<property name="dTime" />		
+		<property name="image" />
+		<property name="province" />		
+		<property name="city" />
+		<property name="countryRegion" />
+		<property name="monthTime" />		
+		<property name="totalTime" />
+		<property name="keyLandscape" />
+		<many-to-one name="user" class="com.webDiary.pojo.User" cascade="save-update" column="Uid" lazy="false"/>
+        </class>
+</hibernate-mapping>

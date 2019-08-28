@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.webDiary.pojo">
+	<class name="UserMessage" table="usermessage">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="content" />
+		<property name="replyContent" />
+		<property name="sendTime" />	
+		<many-to-one name="sender" class="com.webDiary.pojo.User" cascade="save-update" column="sendId" lazy="false"/>	
+		<many-to-one name="sendee" class="com.webDiary.pojo.User" cascade="save-update" column="sendeeId" lazy="false"/>
+	</class>
+	
+</hibernate-mapping>

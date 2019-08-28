@@ -1,0 +1,76 @@
+<nav>
+	<div class="logo">
+
+		<c:if test="${user==null||user.id==0}">
+			<a style="color: blue;cursor: pointer;" onclick="location='login.jsp'">请登陆</a>
+		</c:if>
+		<c:if test="${user!=null&&user.id!=0}">
+			<a style="color: blue; cursor: pointer;" onclick="displayOrHide1();">${session.user.userName}</a>
+		</c:if>
+		<ul id="cityList1">
+			<div id="cityListBox">
+				<li><a style="cursor: default" href="write.jsp">写游记</a></li>
+				<li style="color: #000000"><a style="cursor: default"
+					href="draftsList?page=1" style="color:#000000"><span
+						style="color: #000000b3"> 草稿箱</span></a></li>
+				<li><a href="findUserById?u_id=${user.id}">我的游记</a></li>
+				<li><a href="users_userInfo">修改个人信息</a></li>
+				<li><a href="gbook">留言</a></li>
+
+			</div>
+		</ul>
+	</div>
+	<h2 id="mnavh">
+		<span class="navicon"></span>
+	</h2>
+	<div id="starlist ">
+	<ul  style="color: #000000 ; ">
+		<li style="float: left;display: block;
+    padding: 0 0 0 40px;
+    font-size: 16px;margin-left:35%"><a href="index2?page=1" style="color: #f65a8a">网站首页</a></li>
+		<li style="float: left;display: block;
+    padding: 0 0 0 40px;
+    font-size: 16px"><a href="destination.jsp" style="color: #f65a8a"><span
+				style="color: #000000b3"> 目的地</span></a></li>
+		<li style="float: left;display: block;
+    padding: 0 0 0 40px;
+    font-size: 16px"><a href="index2?index=1&page=1" style="color: #f65a8a"><span
+				style="color: #000000b3"> 推荐游记</span> </a></li>
+		<li style="float: left;display: block;
+    padding: 0 0 0 40px;
+    font-size: 16px">
+			<a  style="color: #f65a8a">
+				<span style="color: #000000b3;cursor: default" onclick="displayOrHide2()" > 游玩攻略</span> 	
+			</a>
+		<div id="cityList2">
+		<ul >
+			
+						<div id="cityListBox1">
+							<li><a style="cursor: default" href="recommend_findRecommend?type_=1">怎么玩</a></li>
+							<li><a style="cursor: default" href="recommend_findRecommend?type_=2">吃什么</a></li>
+							<li><a style="cursor: default" href="recommend_findRecommend?type_=3">买什么</a></li>
+							</div>	
+		</ul>
+		</div>			
+				
+		</li>	
+		<c:if test="${user!=null&&user.id!=0}">
+		   
+			<li style="float: right;display: block;
+    padding: 0 0 0 40px;
+    font-size: 16px"><a href="exit">退出</a></li>
+		</c:if>
+		
+	</ul>
+	</div>	
+	</nav>
+	<style type="text/css">
+.text-hide {
+	text-overflow: ellipsis;
+	height: 70px;
+	overflow: hidden;
+	width: 400px;
+	text-overflow: ellipsis;
+}
+</style>
+	<br>
